@@ -33,6 +33,31 @@ botoes.forEach(function(botao) {
             operadorAtual = '';
             atualizarDisplay();  // Atualiza o display com a entrada limpa
         }
-       
+       // Se o botão for "=", realiza o cálculo
+        else if (botao.classList.contains('equals')) {
+            if (entradaAnterior !== '' && entradaAtual !== '') {  // Verifica se há números para calcular
+                let resultado;
+                switch (operadorAtual) {
+                    case '+':
+                        resultado = parseFloat(entradaAnterior) + parseFloat(entradaAtual);
+                        break;
+                    case '-':
+                        resultado = parseFloat(entradaAnterior) - parseFloat(entradaAtual);
+                        break;
+                    case '*':
+                        resultado = parseFloat(entradaAnterior) * parseFloat(entradaAtual);
+                        break;
+                    c ase '/':
+                        resultado = parseFloat(entradaAnterior) / parseFloat(entradaAtual);
+                        break;
+                    default:
+                        resultado = entradaAtual;  // Se não houver operador, apenas exibe o número atual
+                }
+                entradaAtual = resultado.toString();  // Converte o resultado para string
+                atualizarDisplay();  // Atualiza o display com o resultado
+                entradaAnterior = '';  // Limpa o número anterior após o cálculo
+                operadorAtual = '';  // Limpa o operador após o cálculo
+            }
+        }
     });
 });
