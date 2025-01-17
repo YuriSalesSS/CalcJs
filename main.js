@@ -47,7 +47,7 @@ botoes.forEach(function(botao) {
                     case '*':
                         resultado = parseFloat(entradaAnterior) * parseFloat(entradaAtual);
                         break;
-                    c ase '/':
+                    case '/':
                         resultado = parseFloat(entradaAnterior) / parseFloat(entradaAtual);
                         break;
                     default:
